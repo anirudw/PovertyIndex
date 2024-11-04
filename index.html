@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CET Poverty Index System</title>
+  <link rel="stylesheet" crossorigin href="/assets/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Page -->
+        <div id="loginPage" class="page">
+            <div class="login-container">
+                <h2>CET Poverty Index System</h2>
+                <p>Sign in with your CET email</p>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Email address" required>
+                    </div>
+                    <div id="loginError" class="error-message"></div>
+                    <button type="submit">Sign in</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboardPage" class="page hidden">
+            <nav class="navbar">
+                <h1>CET Poverty Index System</h1>
+                <div class="user-info">
+                    <span id="userEmail"></span>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+            </nav>
+            <main class="dashboard-content">
+                <div class="card-container">
+                    <div class="card">
+                        <h3>Start New Assessment</h3>
+                        <p>Fill out the socioeconomic assessment form</p>
+                        <button id="startAssessment">Start Assessment</button>
+                    </div>
+                    <div class="card">
+                        <h3>View Previous Results</h3>
+                        <p>Check your previous assessment results</p>
+                        <button id="viewResults">View Results</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Form Page -->
+        <div id="formPage" class="page hidden">
+            <div class="form-container">
+                <h2>Socioeconomic Assessment Form</h2>
+                <form id="povertyForm">
+                    <div class="form-step" id="step1">
+                        <div class="input-group">
+                            <label>Annual Family Income (₹)</label>
+                            <input type="number" name="annualIncome" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Land Assets Value (₹)</label>
+                            <input type="number" name="landAssets" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Number of Family Members</label>
+                            <input type="number" name="familySize" required>
+                        </div>
+                    </div>
+
+                    <div class="form-step hidden" id="step2">
+                        <div class="input-group">
+                            <label>Monthly Food Expenses (₹)</label>
+                            <input type="number" name="foodExpenses" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Monthly Healthcare Expenses (₹)</label>
+                            <input type="number" name="healthcareExpenses" required>
+                        </div>
+                    </div>
+
+                    <div class="form-step hidden" id="step3">
+                        <div class="input-group">
+                            <label>Access to Clean Drinking Water</label>
+                            <select name="drinkingWater" required>
+                                <option value="">Select...</option>
+                                <option value="Good">Good</option>
+                                <option value="Average">Average</option>
+                                <option value="Poor">Poor</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Outstanding Debt Amount (₹)</label>
+                            <input type="number" name="debtAmount" required>
+                        </div>
+                    </div>
+
+                    <div class="form-navigation">
+                        <button type="button" id="prevBtn" class="hidden">Previous</button>
+                        <button type="button" id="nextBtn">Next</button>
+                        <button type="submit" id="submitBtn" class="hidden">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Results Page -->
+        <div id="resultsPage" class="page hidden">
+            <div class="results-container">
+                <button id="backToDashboard">Back to Dashboard</button>
+                <h2>Poverty Index Assessment Results</h2>
+                <div class="score-container">
+                    <div class="score-label">Your Score</div>
+                    <div class="score-value">75/100</div>
+                    <div class="score-bar">
+                        <div class="score-progress"></div>
+                    </div>
+                </div>
+                <div class="category-info critical">
+                    <h3>Critical Priority for Financial Assistance</h3>
+                    <p>Based on your socioeconomic assessment, you qualify for priority assistance.</p>
+                </div>
+                <div class="scholarships">
+                    <h3>Recommended Scholarships</h3>
+                    <div class="scholarship-grid" id="scholarshipList">
+                        <!-- Scholarships will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/script.js"></script>
+</body>
+</html>
